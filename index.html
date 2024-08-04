@@ -5,21 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nasza Miłość</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <div class="logo">
-            Żenia<span>&</span>Klaudia
+        <div class="container">
+            <div class="logo">
+                Żenia<span>&</span>Klaudia
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#gallerySection">Galeria</a></li>
+                    <li><a href="#quizSection">Gra o Miłości</a></li>
+                </ul>
+            </nav>
         </div>
-        <h1>Nasza Historia Miłości</h1>
     </header>
+    
     <main>
+        <section id="hero">
+            <div class="container">
+                <h1>Nasza Historia Miłości</h1>
+                <p>Odkryj wspólne chwile, które czynią naszą miłość wyjątkową.</p>
+            </div>
+        </section>
+
         <section id="gallerySection">
+            <h2>Nasza Galeria</h2>
             <div class="button-container">
-                <button id="galleryButton">Nasza Galeria</button>
+                <button id="galleryButton">Zobacz Galerię</button>
             </div>
             <div class="media-container" id="mediaContainer" style="display: none;">
-                <!-- Вставте свої URL-адреси зображень та відео тут -->
                 <img src="IMG_0093.JPG" alt="Nasza chwila 1">
                 <img src="IMG_0144.JPG" alt="Nasza chwila 2">
                 <img src="IMG_0254.jpg" alt="Nasza chwila 3">
@@ -41,33 +57,27 @@
             </div>
         </section>
 
-        <section id="gameIntro">
-            <h2>Jak dobrze mnie znasz?</h2>
-            <p>
-                Miłość to nie tylko piękne chwile, ale także wspólne wspomnienia i odkrywanie siebie nawzajem. 
-                Czy jesteś gotów na małe wyzwanie? Odpowiedz na te 10 pytań, które pomogą Ci sprawdzić, 
-                jak dobrze znasz mnie i naszą miłość. 
-            </p>
-            <p>
-                Pamiętaj, że każda odpowiedź ma znaczenie, a każda chwila spędzona razem jest wyjątkowa. 
-                Zagrajmy w tę grę i zobaczmy, ile naprawdę wiesz!
-            </p>
+        <section id="quizSection">
+            <h2>Quiz o Miłości</h2>
+            <p>Sprawdź, jak dobrze znasz swoją drugą połówkę!</p>
             <div class="button-container">
-                <button id="loveGameButton">Zagraj w grę o miłości!</button>
+                <button id="startQuizButton">Zagraj w quiz!</button>
             </div>
         </section>
 
-        <div class="game-container" id="loveGame" style="display: none;">
-            <h2>Gra o Miłości</h2>
-            <div id="questionContainer"></div>
-            <input type="text" id="answerInput" placeholder="Wpisz odpowiedź...">
-            <div class="button-container">
-                <button id="submitAnswer">Sprawdź odpowiedź</button>
-                <button id="closeGame">Zamknij</button>
+        <div class="quiz-container" id="quizGame" style="display: none;">
+            <h2>Quiz o Miłości</h2>
+            <div id="quizContainer">
+                <h3 id="quizQuestion"></h3>
+                <div id="quizChoices"></div>
+                <button id="nextQuizButton">Dalej</button>
             </div>
-            <p id="resultMessage"></p>
+            <p id="quizResultMessage"></p>
+            <button id="finishQuizButton" style="display: none;">Zakończ</button> <!-- Додаємо кнопку завершення -->
+            <div id="confetti" class="confetti"></div>
         </div>
     </main>
+
     <footer>
         <p>© 2024 Nasza Miłość</p>
     </footer>
