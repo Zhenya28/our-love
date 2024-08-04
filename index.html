@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nasza Miłość</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            Żenia<span>&</span>Klaudia
+        </div>
+        <h1>Nasza Historia Miłości</h1>
+    </header>
+    <main>
+        <section id="gallerySection">
+            <div class="button-container">
+                <button id="galleryButton">Nasza Galeria</button>
+            </div>
+            <div class="media-container" id="mediaContainer" style="display: none;">
+                <!-- Вставте свої URL-адреси зображень та відео тут -->
+                <img src="photo/IMG_0093.JPG" alt="Nasza chwila 1">
+                <img src="photo/IMG_0144.JPG" alt="Nasza chwila 2">
+                <img src="photo/IMG_0254.jpg" alt="Nasza chwila 3">
+                <video controls>
+                    <source src="photo/f472f0cd638045729616ffdb494dafdb.MOV" type="video/mp4">
+                    Twoja przeglądarka nie obsługuje odtwarzania wideo.
+                </video>
+                <img src="photo/IMG_0468.jpg" alt="Nasza chwila 4">
+                <img src="photo/IMG_0722.jpg" alt="Nasza chwila 5">
+                <img src="photo/IMG_0129.JPG" alt="Nasza chwila 6">
+                <video controls>
+                    <source src="photo/4ff76d9c2c554f5a878353b90df347e5.MOV" type="video/mp4">
+                    Twoja przeglądarka nie obsługuje odtwarzania wideo.
+                </video>
+                <video controls>
+                    <source src="photo/a8b9cfa9315b4f79bf5f0b721d5ad939.MOV" type="video/mp4">
+                    Twoja przeglądarka nie obsługuje odtwarzania wideo.
+                </video>
+            </div>
+        </section>
+
+        <section id="gameIntro">
+            <h2>Jak dobrze mnie znasz?</h2>
+            <p>
+                Miłość to nie tylko piękne chwile, ale także wspólne wspomnienia i odkrywanie siebie nawzajem. 
+                Czy jesteś gotów na małe wyzwanie? Odpowiedz na te 10 pytań, które pomogą Ci sprawdzić, 
+                jak dobrze znasz mnie i naszą miłość. 
+            </p>
+            <p>
+                Pamiętaj, że każda odpowiedź ma znaczenie, a każda chwila spędzona razem jest wyjątkowa. 
+                Zagrajmy w tę grę i zobaczmy, ile naprawdę wiesz!
+            </p>
+            <div class="button-container">
+                <button id="loveGameButton">Zagraj w grę o miłości!</button>
+            </div>
+        </section>
+
+        <div class="game-container" id="loveGame" style="display: none;">
+            <h2>Gra o Miłości</h2>
+            <div id="questionContainer"></div>
+            <input type="text" id="answerInput" placeholder="Wpisz odpowiedź...">
+            <div class="button-container">
+                <button id="submitAnswer">Sprawdź odpowiedź</button>
+                <button id="closeGame">Zamknij</button>
+            </div>
+            <p id="resultMessage"></p>
+        </div>
+    </main>
+    <footer>
+        <p>© 2024 Nasza Miłość</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
