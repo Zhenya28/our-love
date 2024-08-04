@@ -1,72 +1,156 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const loveGameButton = document.getElementById('loveGameButton');
-    const loveGameContainer = document.getElementById('loveGame');
-    const closeGameButton = document.getElementById('closeGame');
-    const questionContainer = document.getElementById('questionContainer');
-    const answerInput = document.getElementById('answerInput');
-    const submitAnswerButton = document.getElementById('submitAnswer');
-    const resultMessage = document.getElementById('resultMessage');
-    const galleryButton = document.getElementById('galleryButton');
-    const mediaContainer = document.getElementById('mediaContainer');
+const galleryButton = document.getElementById('galleryButton');
+const mediaContainer = document.getElementById('mediaContainer');
+const startQuizButton = document.getElementById("startQuizButton");
+const quizGame = document.getElementById("quizGame");
+const quizQuestion = document.getElementById("quizQuestion");
+const quizChoices = document.getElementById("quizChoices");
+const nextQuizButton = document.getElementById("nextQuizButton");
+const quizResultMessage = document.getElementById("quizResultMessage");
+const confettiContainer = document.getElementById("confetti");
+const closeButton = document.createElement('div'); // Додаємо кнопку закриття
+let finishQuizButton;
 
-    const questions = [
-        { question: "Jakie jest moje ulubione wspomnienie z nami?", answer: "wspomnienie 1" },
-        { question: "Jakie jest moje ulubione jedzenie, które jemy razem?", answer: "pasta" },
-        { question: "Gdzie po raz pierwszy się spotkaliśmy?", answer: "kawiarnia" },
-        { question: "Jakie jest moje ulubione miejsce na wakacje?", answer: "plaża" },
-        { question: "Jaki film lubimy oglądać razem?", answer: "nazwa filmu" },
-        { question: "Jakie jest moje ulubione zwierzę?", answer: "kot" },
-        { question: "Jakie jest moje ulubione hobby?", answer: "gra na gitarze" },
-        { question: "Jakie jest moje ulubione miejsce w naszym mieście?", answer: "park" },
-        { question: "Co chciałbym zrobić w przyszłości?", answer: "podróżować" },
-        { question: "Jaka jest moja ulubiona piosenka?", answer: "nazwa piosenki" },
-    ];
+let currentQuizIndex = 0;
+const quizQuestions = [
+    {
+        question: "Jakie jest ulubione jedzenie Twojej drugiej połówki?",
+        choices: [
+            "Pizza",
+            "Sushi",
+            "Czekolada",
+            "Sałatka"
+        ]
+    },
+    {
+        question: "Gdzie odbyła się Wasza pierwsza randka?",
+        choices: [
+            "W restauracji",
+            "W kinie",
+            "Na spacerze",
+            "W parku"
+        ]
+    },
+    {
+        question: "Jaki film uwielbia oglądać Twoja druga połówka?",
+        choices: [
+            "Romantyczny",
+            "Komedia",
+            "Dramat",
+            "Akcja"
+        ]
+    },
+    {
+        question: "Jakie jest ulubione miejsce wakacyjne Twojej drugiej połówki?",
+        choices: [
+            "Morze",
+            "Góry",
+            "Miasto",
+            "Wieś"
+        ]
+    },
+    {
+        question: "Jakie hobby ma Twoja druga połówka?",
+        choices: [
+            "Sport",
+            "Gotowanie",
+            "Muzyka",
+            "Sztuka"
+        ]
+    }
+];
 
-    let currentQuestionIndex = 0;
+galleryButton.addEventListener('click', () => {
+    mediaContainer.style.display = mediaContainer.style.display === 'none' ? 'grid' : 'none';
+});
 
-    loveGameButton.addEventListener('click', () => {
-        loveGameContainer.style.display = 'block'; // Показати гру
-        loadQuestion();
-    });
+startQuizButton.addEventListener("click", () => {
+    quizGame.style.display = "block";
+    startQuizButton.style.display = "none";
+    currentQuizIndex = 0;
+    showQuizQuestion();
+});
 
-    closeGameButton.addEventListener('click', () => {
-        loveGameContainer.style.display = 'none'; // Сховати гру
-        answerInput.value = ''; // Очистити поле вводу
-        resultMessage.textContent = ''; // Очистити повідомлення
-        currentQuestionIndex = 0; // Скинути індекс питання
-    });
+// Додаємо хрестик для закриття гри
+closeButton.innerHTML = "&#10006;"; // HTML код для хрестика
+closeButton.classList.add('close-button'); // Додаємо клас
+closeButton.addEventListener('click', finishQuiz); // Обробник подій для закриття
+quizGame.appendChild(closeButton); // Додаємо хрестик до квізу
 
-    submitAnswerButton.addEventListener('click', () => {
-        const userAnswer = answerInput.value.toLowerCase();
-        const correctAnswer = questions[currentQuestionIndex].answer.toLowerCase();
-
-        if (userAnswer === correctAnswer) {
-            resultMessage.textContent = 'Brawo! Zgadłeś poprawną odpowiedź! 🎉';
-            currentQuestionIndex++;
-            loadQuestion();
-        } else {
-            resultMessage.textContent = 'Spróbuj ponownie!';
-        }
-    });
-
-    galleryButton.addEventListener('click', () => {
-        if (mediaContainer.style.display === 'none') {
-            mediaContainer.style.display = 'grid'; // Показати галерею
-            galleryButton.textContent = 'Ukryj Galerię';
-        } else {
-            mediaContainer.style.display = 'none'; // Сховати галерею
-            galleryButton.textContent = 'Nasza Galeria';
-        }
-    });
-
-    function loadQuestion() {
-        if (currentQuestionIndex < questions.length) {
-            questionContainer.textContent = questions[currentQuestionIndex].question;
-            answerInput.value = ''; // Очистити поле вводу
-            resultMessage.textContent = ''; // Очистити повідомлення
-        } else {
-            questionContainer.textContent = 'Gratulacje! Odpowiedziałeś na wszystkie pytania! ❤️';
-            submitAnswerButton.disabled = true; // Вимкнути кнопку
-        }
+nextQuizButton.addEventListener("click", () => {
+    currentQuizIndex++;
+    if (currentQuizIndex < quizQuestions.length) {
+        showQuizQuestion();
+    } else {
+        showQuizResult();
     }
 });
+
+function showQuizQuestion() {
+    quizQuestion.innerText = quizQuestions[currentQuizIndex].question;
+    quizChoices.innerHTML = '';
+    quizQuestions[currentQuizIndex].choices.forEach((choice) => {
+        quizChoices.innerHTML += 
+            `<div class="choice">${choice}</div>`;
+    });
+    nextQuizButton.style.display = "none"; // Сховати кнопку "Далі" до вибору варіанту
+
+    // Додати обробник подій до варіантів
+    document.querySelectorAll('.choice').forEach((choice) => {
+        choice.addEventListener('click', function() {
+            // Скинути вибір для всіх варіантів
+            document.querySelectorAll('.choice').forEach(c => c.classList.remove('selected'));
+            // Додати клас 'selected' до вибраної відповіді
+            this.classList.add('selected'); 
+            nextQuizButton.style.display = "block"; // Показати кнопку "Далі" при виборі
+        });
+    });
+}
+
+function showQuizResult() {
+    quizQuestion.innerText = "Twój wynik:"; // Заголовок результату
+    quizChoices.innerHTML = '';
+    quizResultMessage.innerText = "Dziękujemy za udział w quizie! Zdradzisz miłość z nowym uczuciem!"; // Текст результату
+    nextQuizButton.style.display = "none"; // Сховати кнопку "Далі"
+
+    // Додаємо кнопку "Zakończ"
+    finishQuizButton = document.createElement('button');
+    finishQuizButton.innerText = "Zakończ";
+    finishQuizButton.id = "finishQuizButton";
+    finishQuizButton.style.marginTop = "20px"; // Відступ для кнопки
+    finishQuizButton.addEventListener('click', finishQuiz); // Обробник подій для завершення
+    quizGame.appendChild(finishQuizButton); // Додаємо кнопку до квізу
+
+    showConfetti();
+}
+
+function finishQuiz() {
+    quizGame.style.display = "none"; // Сховати квіз
+    confettiContainer.style.display = "none"; // Сховати конфетті
+    finishQuizButton?.remove(); // Видалити кнопку завершення, якщо вона існує
+    startQuizButton.style.display = "block"; // Показати кнопку "Zagraj w quiz!" після завершення
+}
+
+function showConfetti() {
+    confettiContainer.style.display = "block";
+    for (let i = 0; i < 100; i++) {
+        createConfetti();
+    }
+}
+
+function createConfetti() {
+    const confettiPiece = document.createElement("div");
+    confettiPiece.classList.add("confetti-piece");
+    confettiPiece.style.left = Math.random() * 100 + "vw"; // Випадкове положення по горизонталі
+    confettiPiece.style.backgroundColor = getRandomColor(); // Випадковий колір
+    confettiContainer.appendChild(confettiPiece);
+
+    // Удаление конфетті через 3 секунди
+    setTimeout(() => {
+        confettiPiece.remove();
+    }, 3000);
+}
+
+function getRandomColor() {
+    const colors = ["red", "green", "blue", "yellow", "purple", "orange"];
+    return colors[Math.floor(Math.random() * colors.length)];
+}
