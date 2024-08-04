@@ -1,53 +1,69 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #ffe6e6;
-    color: #333;
-    overflow-x: hidden;
+    background-color: #FFDFD6; /* Світло-рожевий фон */
+    color: #FFFFFF; /* Білий текст */
 }
 
 header {
-    background: linear-gradient(to right, #ff6f61, #ffb6c1);
-    color: white;
-    padding: 30px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 1s ease-in-out;
+    background: linear-gradient(to right, #E3A5C7, #B692C2); /* Градієнт */
+    color: #FFFFFF;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 36px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
-    font-size: 40px;
+    font-size: 36px;
     font-weight: bold;
-    color: #fff;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#hero {
+    background: url('hero-background.jpg') no-repeat center center/cover;
+    padding: 60px 0;
+    text-align: center;
+    color: #694F8E; /* Темно-фіолетовий текст */
+}
+
+#hero h1 {
+    font-size: 48px;
     margin-bottom: 10px;
-    position: relative;
 }
 
-.logo span {
-    color: #ff6f61;
-}
-
-.logo::before, .logo::after {
-    content: '❤️';
-    position: absolute;
-    font-size: 24px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.logo::before {
-    left: -30px;
-}
-
-.logo::after {
-    right: -30px;
+#hero p {
+    font-size: 20px;
 }
 
 main {
@@ -56,21 +72,22 @@ main {
 
 section {
     margin-bottom: 40px;
+    background-color: #FFFFFF; /* Білий фон для секцій */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-    color: #ff6f61;
+    color: #694F8E; /* Темно-фіолетовий заголовок */
     font-size: 28px;
-    border-bottom: 2px solid #ff6f61;
-    padding-bottom: 10px;
-    animation: slideIn 0.8s ease-in-out;
+    margin-bottom: 15px;
 }
 
 .media-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 15px;
-    margin-top: 20px;
 }
 
 .media-container img, .media-container video {
@@ -86,22 +103,15 @@ h2 {
     transform: scale(1.05);
 }
 
-.footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 15px 0;
-}
-
 .button-container {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 20px; /* Збільшено відступи навколо кнопок */
 }
 
 button {
     margin: 0 10px;
-    background-color: #ff6f61;
+    background-color: #E3A5C7; /* Світло-рожевий для кнопок */
     color: white;
     border: none;
     padding: 12px 24px;
@@ -113,58 +123,135 @@ button {
 }
 
 button:hover {
-    background-color: #e65c50;
+    background-color: #B692C2; /* Темніший рожевий при наведенні */
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
-button:active {
-    transform: translateY(1px);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+footer {
+    text-align: center;
+    padding: 15px 0;
+    background-color: #694F8E; /* Темно-фіолетовий фон футера */
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
-.game-container {
+.quiz-container {
     display: none;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #fff3f3;
+    background-color: #FFDFD6; /* Світло-рожевий фон для гри */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     z-index: 10;
+    text-align: center; /* Вирівнювання тексту по центру */
 }
 
-.game-container h2 {
+.quiz-container h2 {
     margin: 0;
-    color: #ff6f61;
+    color: #694F8E; /* Темно-фіолетовий заголовок */
 }
 
-.game-container input {
-    margin-top: 10px;
-    padding: 10px;
-    border: 1px solid #ff6f61;
-    border-radius: 5px;
-    width: calc(100% - 22px);
+#quizQuestion {
+    font-size: 22px; /* Збільшений розмір тексту для питання */
+    margin-bottom: 15px; /* Відступ під питанням */
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+#quizChoices {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-@keyframes slideIn {
-    from {
-        transform: translateX(-50px);
-        opacity: 0;
+.choice {
+    background-color: #E3A5C7; /* Світло-рожевий фон для варіантів */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px; /* Заокруглення варіантів */
+    margin: 10px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 80%; /* Збільшена ширина варіантів */
+    text-align: center; /* Центрування тексту */
+}
+
+.choice:hover {
+    background-color: #B692C2; /* Темніший рожевий при наведенні */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.selected {
+    background-color: #B692C2; /* Темніший рожевий для вибраної відповіді */
+    color: white; /* Білий текст */
+}
+
+#nextQuizButton {
+    display: none; /* Сховати кнопку за замовчуванням */
+    margin: 20px auto; /* Центрування */
+    background-color: #E3A5C7; /* Світло-рожевий для кнопок */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: block; /* Зробити кнопку блочним елементом для центрування */
+}
+
+#nextQuizButton:hover {
+    background-color: #B692C2; /* Темніший рожевий при наведенні */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.confetti {
+    display: none; /* Спочатку приховане */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Ігноруємо натискання миші */
+    z-index: 20;
+    overflow: hidden;
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    opacity: 0.7;
+    animation: fall 3s forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
     }
-    to {
-        transform: translateX(0);
-        opacity: 1;
+    50% {
+        transform: translateY(30vh) rotate(180deg); /* Додано поворот на півдорозі */
     }
+    100% {
+        transform: translateY(100vh) rotate(360deg); /* Спад до кінця футера */
+    }
+}
+.close-button {
+    position: absolute;
+    top: 10px; /* Відступ від верхнього краю */
+    right: 10px; /* Відступ від правого краю */
+    font-size: 24px; /* Розмір шрифту */
+    cursor: pointer; /* Курсор при наведенні */
+    color: #ff0000; /* Колір хрестика */
+}
+
+.close-button:hover {
+    color: #ff5555; /* Змінюємо колір при наведенні */
 }
