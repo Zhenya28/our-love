@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const startQuizButton = document.getElementById("startQuizButton");
     const quizGame = document.getElementById("quizGame");
     const closeButton = document.getElementById("closeButton");
-    
+
     galleryButton.addEventListener("click", () => {
         mediaContainer.style.display = mediaContainer.style.display === "none" ? "grid" : "none";
     });
@@ -114,43 +114,26 @@ document.addEventListener("DOMContentLoaded", () => {
             loadQuiz();
             nextQuizButton.style.display = "none";
         } else {
-            showResults();
+            finishQuiz();
         }
     });
 
-    finishQuizButton.addEventListener("click", () => {
+    finishQuizButton.addEventListener("click", finishQuiz);
+
+    function finishQuiz() {
         quizGame.style.display = "none";
-        quizContainer.style.display = "block";
-        finishQuizButton.style.display = "none";
-        quizResultMessage.style.display = "none";
-        currentQuizIndex = 0;
-        score = 0;
-    });
-
-    function showResults() {
-        quizContainer.style.display = "none";
-        finishQuizButton.style.display = "block";
-        quizResultMessage.innerText = `Nie ważne na ile poprawnych odpowiedzi odpowiedziałaś, twój wynik i tak 10, bo ty jesteś 10/10 😏❤️`;
+        const resultMessage = `Twój wynik: ${score} z ${quizData.length}`;
+        quizResultMessage.innerText = resultMessage;
         quizResultMessage.style.display = "block";
-        if (score === quizData.length) {
-            showConfetti();
-        }
+        showConfetti();
     }
 
     function showConfetti() {
-        const confettiElement = document.getElementById("confetti");
-        confettiElement.style.display = "block";
-        confetti({
-            element: confettiElement,
-            spread: 70,
-            startVelocity: 30,
-            particleCount: 100,
-            decay: 0.9,
-        });
-        setTimeout(() => {
-            confettiElement.style.display = "none";
-        }, 3000);
+        const confetti = new ConfettiGenerator({ target: 'confetti', width: window.innerWidth, height: window.innerHeight });
+        confetti.render();
+        setTimeout(() => confetti.clear(), 5000);
     }
 });
+
 
 
