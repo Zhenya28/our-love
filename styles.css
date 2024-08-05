@@ -154,103 +154,86 @@ footer {
 
 .quiz-container h2 {
     margin: 0;
-    color: #694F8E; /* Темно-фіолетовий заголовок */
+    color: #694F8E;
+    font-size: 24px; /* Зменшено розмір заголовка */
 }
 
-#quizQuestion {
-    font-size: 22px; /* Збільшений розмір тексту для питання */
-    margin-bottom: 15px; /* Відступ під питанням */
+.quiz-container h3 {
+    color: #694F8E; /* Темно-фіолетовий заголовок для питань */
+    margin-bottom: 20px;
 }
 
-#quizChoices {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.quiz-container button {
+    margin-top: 20px;
+    padding: 10px 20px;
 }
 
-.choice {
-    background-color: #E3A5C7; /* Світло-рожевий фон для варіантів */
+.choiceButton {
+    display: block;
+    margin: 10px auto; /* Відцентровуємо кнопки */
+    background-color: #B692C2; /* Вибір темно-рожевого кольору */
     color: white;
     border: none;
     padding: 10px 20px;
-    border-radius: 30px; /* Заокруглення варіантів */
-    margin: 10px 0;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: 80%; /* Збільшена ширина варіантів */
-    text-align: center; /* Центрування тексту */
-}
-
-.choice:hover {
-    background-color: #B692C2; /* Темніший рожевий при наведенні */
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.selected {
-    background-color: #B692C2; /* Темніший рожевий для вибраної відповіді */
-    color: white; /* Білий текст */
-}
-
-#nextQuizButton {
-    display: none; /* Сховати кнопку за замовчуванням */
-    margin: 20px auto; /* Центрування */
-    background-color: #E3A5C7; /* Світло-рожевий для кнопок */
-    color: white;
-    border: none;
-    padding: 12px 24px;
     border-radius: 30px;
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    display: block; /* Зробити кнопку блочним елементом для центрування */
 }
 
-#nextQuizButton:hover {
-    background-color: #B692C2; /* Темніший рожевий при наведенні */
+.choiceButton:hover {
+    background-color: #694F8E;
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
-.confetti {
-    display: none; /* Спочатку приховане */
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; /* Ігноруємо натискання миші */
-    z-index: 20;
-    overflow: hidden;
+#confetti {
+    display: none;
 }
 
-.confetti-piece {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: red;
-    opacity: 0.7;
-    animation: fall 3s forwards;
-}
-
-@keyframes fall {
-    0% {
-        transform: translateY(-100vh) rotate(0deg);
-    }
-    50% {
-        transform: translateY(30vh) rotate(180deg); /* Додано поворот на півдорозі */
-    }
-    100% {
-        transform: translateY(100vh) rotate(360deg); /* Спад до кінця футера */
-    }
-}
 .close-button {
     position: absolute;
-    top: 10px; /* Відступ від верхнього краю */
-    right: 10px; /* Відступ від правого краю */
-    font-size: 24px; /* Розмір шрифту */
-    cursor: pointer; /* Курсор при наведенні */
-    color: #ff0000; /* Колір хрестика */
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #694F8E; /* Темно-фіолетовий колір для кнопки закриття */
 }
+
+#menuIcon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background: linear-gradient(to right, #E3A5C7, #B692C2); /* Градієнт */
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+        text-align: right;
+    }
+
+    #menuIcon {
+        display: block;
+    }
+}
+
 
 .close-button:hover {
     color: #ff5555; /* Змінюємо колір при наведенні */
