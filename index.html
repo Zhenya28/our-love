@@ -19,6 +19,7 @@
                     <li><a href="#quizSection">Gra o Miłości</a></li>
                 </ul>
             </nav>
+            <div class="menu-icon" id="menuIcon">&#9776;</div>
         </div>
     </header>
     
@@ -70,16 +71,22 @@
             <div id="quizContainer">
                 <h3 id="quizQuestion"></h3>
                 <div id="quizChoices"></div>
-                <button id="nextQuizButton">Dalej</button>
+                <button id="nextQuizButton" style="display: none;">Dalej</button>
             </div>
             <p id="quizResultMessage"></p>
-            <button id="finishQuizButton" style="display: none;">Zakończ</button> <!-- Додаємо кнопку завершення -->
+            <button id="finishQuizButton" style="display: none;">Zakończ</button>
             <div id="confetti" class="confetti"></div>
+            <div class="close-button" id="closeButton">&#10006;</div>
         </div>
     </main>
 
     <footer>
         <p>© 2024 Nasza Miłość</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+
     </footer>
     <script src="script.js"></script>
 </body>
