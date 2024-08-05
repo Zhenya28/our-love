@@ -4,8 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const startQuizButton = document.getElementById("startQuizButton");
     const quizGame = document.getElementById("quizGame");
     const closeButton = document.getElementById("closeButton");
-    const menuIcon = document.getElementById("menuIcon");
-    const navUl = document.querySelector("nav ul");
     
     galleryButton.addEventListener("click", () => {
         mediaContainer.style.display = mediaContainer.style.display === "none" ? "grid" : "none";
@@ -18,10 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     closeButton.addEventListener("click", () => {
         quizGame.style.display = "none";
-    });
-
-    menuIcon.addEventListener("click", () => {
-        navUl.classList.toggle("show");
     });
     
     // Конфігурація для вікторини
@@ -123,4 +117,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 3000);
     }
 });
+
 
