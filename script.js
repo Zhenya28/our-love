@@ -151,8 +151,13 @@ document.addEventListener("DOMContentLoaded", () => {
             confettiElement.style.display = "none";
         }, 3000);
     }
+
+    // New button functionality for showing reasons
+    const reasonsButton = document.getElementById("reasonsButton");
+    const reasonsList = document.getElementById("reasonsList");
+
+    reasonsButton.addEventListener("click", () => {
+        reasonsList.style.display = reasonsList.style.display === "none" ? "block" : "none";
+    });
 });
-
-
-
 
