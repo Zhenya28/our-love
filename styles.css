@@ -170,13 +170,38 @@ footer {
     margin-top: 20px;
 }
 
-.close-button {
+.choiceButton {
+    display: block;
+    margin: 10px auto; /* Відцентровуємо кнопки */
+    background-color: #B692C2; /* Вибір темно-рожевого кольору */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 16px;
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.choiceButton:hover {
+    background-color: #694F8E;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+#confetti {
+    display: none;
+}
+
+.close-button {
     position: absolute;
     top: 10px;
     right: 10px;
     font-size: 24px;
-    color: #333; /* Темний колір для закриття */
+    cursor: pointer;
+    color: #694F8E; /* Темно-фіолетовий колір для кнопки закриття */
 }
 
-
+.close-button:hover {
+    color: #ff5555; /* Змінюємо колір при наведенні */
+}
