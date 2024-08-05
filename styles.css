@@ -24,8 +24,9 @@ header {
     max-width: 1200px;
     margin: auto;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    text-align: center; /* Центруємо текст всередині контейнера */
 }
 
 .logo {
@@ -42,13 +43,14 @@ header {
 
 #hero p {
     font-size: 20px;
+    margin-top: 20px; /* Додаємо відступ зверху для тексту */
 }
 
 .my-photo {
-    width: 100%;
-    max-width: 400px;
+    width: 80%;
+    max-width: 300px;
     border-radius: 10px;
-    margin-top: 20px;
+    margin-bottom: 20px; /* Додаємо відступ знизу для фото */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -142,13 +144,26 @@ footer {
 
 .quiz-container h2 {
     margin: 0;
+    font-size: 24px;
     color: #694F8E;
-    font-size: 24px; /* Зменшено розмір заголовка */
 }
 
-.quiz-container h3 {
-    color: #694F8E; /* Темно-фіолетовий заголовок для питань */
-    margin-bottom: 20px;
+#quizContainer {
+    margin-top: 20px;
+}
+
+#quizQuestion {
+    font-size: 20px;
+    color: #333; /* Темний колір для питання */
+}
+
+#quizChoices {
+    margin-top: 20px;
+}
+
+#quizResultMessage {
+    margin-top: 20px;
+    font-size: 20px;
 }
 
 .quiz-container button {
