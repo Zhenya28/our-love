@@ -61,7 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextQuizButton = document.getElementById('nextQuizButton');
     const finishQuizButton = document.getElementById('finishQuizButton');
     const quizResultMessage = document.getElementById('quizResultMessage');
-    const closeButton = document.getElementById('closeButton');
     const confetti = document.getElementById('confetti');
 
     let currentQuestionIndex = 0;
@@ -100,10 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
         currentQuestionIndex = 0;
         correctAnswers = 0;
         quizResultMessage.textContent = '';
-    });
-
-    closeButton.addEventListener('click', () => {
-        quizGame.style.display = 'none';
     });
 
     function displayQuestion() {
