@@ -51,19 +51,20 @@ nav ul li a {
 }
 
 #hero {
-    background: url('hero-background.jpg') no-repeat center center/cover;
     padding: 60px 0;
     text-align: center;
     color: #694F8E; /* Темно-фіолетовий текст */
 }
 
-#hero h1 {
-    font-size: 48px;
-    margin-bottom: 10px;
-}
-
 #hero p {
     font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.hero-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
 
 main {
@@ -151,45 +152,14 @@ footer {
     z-index: 10;
     text-align: center; /* Вирівнювання тексту по центру */
     width: 90%; /* Ширше поле гри */
-    max-width: 600px; /* Максимальна ширина */
-}
-
-.quiz-container h2 {
-    margin: 0;
-    color: #694F8E;
-    font-size: 24px; /* Зменшено розмір заголовка */
-}
-
-.quiz-container h3 {
-    color: #694F8E; /* Темно-фіолетовий заголовок для питань */
-    margin-bottom: 20px;
-}
-
-.quiz-container button {
-    margin-top: 20px;
-}
-
-.choiceButton {
-    display: block;
-    margin: 10px auto; /* Відцентровуємо кнопки */
-    background-color: #B692C2; /* Вибір темно-рожевого кольору */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 30px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.choiceButton:hover {
-    background-color: #694F8E;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    max-width: 600px; /* Максимальна ширина для великих екранів */
 }
 
 #confetti {
-    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Знехтувати подіями миші */
 }
 
 .close-button {
@@ -198,49 +168,6 @@ footer {
     right: 10px;
     font-size: 24px;
     cursor: pointer;
-    color: #694F8E; /* Темно-фіолетовий колір для кнопки закриття */
+    color: #694F8E;
 }
 
-#menuIcon {
-    display: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: #FFFFFF;
-}
-
-@media (max-width: 768px) {
-    nav ul {
-        display: none;
-        flex-direction: column;
-        background: linear-gradient(to right, #E3A5C7, #B692C2); /* Градієнт */
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 200px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    }
-
-    nav ul.show {
-        display: flex;
-    }
-
-    nav ul li {
-        display: block;
-        margin: 10px 0;
-        text-align: right;
-    }
-
-    #menuIcon {
-        display: block;
-    }
-}
-
-.close-button:hover {
-    color: #ff5555; /* Змінюємо колір при наведенні */
-}
-
-
-
-.close-button:hover {
-    color: #ff5555; /* Змінюємо колір при наведенні */
-}
