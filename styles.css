@@ -1,125 +1,208 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: #FFDFD6; /* Світло-рожевий фон */
+    color: #FFFFFF; /* Білий текст */
 }
 
 header {
-    background-color: #ff6f61;
-    padding: 10px 0;
-    text-align: center;
-    color: white;
-}
-
-.logo {
-    font-size: 2em;
-    font-weight: 600;
-}
-
-.logo span {
-    color: #fff176;
+    background: linear-gradient(to right, #E3A5C7, #B692C2); /* Градієнт */
+    color: #FFFFFF;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .container {
-    width: 80%;
-    margin: 0 auto;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* Центруємо текст всередині контейнера */
+}
+
+.logo {
+    font-size: 36px;
+    font-weight: bold;
 }
 
 #hero {
-    padding: 20px 0;
+    background: url('hero-background.jpg') no-repeat center center/cover;
+    padding: 60px 0;
+    text-align: center;
+    color: #694F8E; /* Темно-фіолетовий текст */
+}
+
+#hero p {
+    font-size: 20px;
+    margin-top: 20px; /* Додаємо відступ зверху для тексту */
 }
 
 .my-photo {
-    width: 100%;
+    width: 80%;
     max-width: 300px;
-    display: block;
-    margin: 0 auto 20px;
+    border-radius: 10px;
+    margin-bottom: 20px; /* Додаємо відступ знизу для фото */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+main {
+    padding: 20px;
 }
 
 section {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    background-color: #FFFFFF; /* Білий фон для секцій */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-    text-align: center;
-    color: #333;
+    color: #694F8E; /* Темно-фіолетовий заголовок */
+    font-size: 28px;
+    margin-bottom: 15px;
 }
 
-.button-container {
-    text-align: center;
-    margin-top: 20px;
-}
-
-button {
-    padding: 10px 20px;
-    font-size: 1em;
-    color: #fff;
-    background-color: #ff6f61;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #ff4a4a;
+.media-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
 }
 
 .media-container img, .media-container video {
     width: 100%;
-    max-width: 300px;
-    display: block;
-    margin: 10px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.media-container img:hover, .media-container video:hover {
+    transform: scale(1.05);
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Збільшено відступи навколо кнопок */
+}
+
+button {
+    margin: 0 10px;
+    background-color: #E3A5C7; /* Світло-рожевий для кнопок */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: #B692C2; /* Темніший рожевий при наведенні */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+footer {
+    text-align: center;
+    padding: 15px 0;
+    background-color: #694F8E; /* Темно-фіолетовий фон футера */
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
 .quiz-container {
-    background-color: #fff;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFDFD6; /* Світло-рожевий фон для гри */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    text-align: center; /* Вирівнювання тексту по центру */
+    width: 90%; /* Ширше поле гри */
+    max-width: 600px; /* Максимальна ширина */
 }
 
 .quiz-container h2 {
-    margin-top: 0;
+    margin: 0;
+    font-size: 24px;
+    color: #694F8E;
+}
+
+#quizContainer {
+    margin-top: 20px;
 }
 
 #quizQuestion {
-    font-size: 1.2em;
+    font-size: 20px;
+    color: #333; /* Темний колір для питання */
 }
 
-#quizChoices label {
-    display: block;
-    margin: 10px 0;
+#quizChoices {
+    margin-top: 20px;
 }
 
 #quizResultMessage {
-    text-align: center;
-    font-size: 1.2em;
-    color: #ff6f61;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.quiz-container button {
+    margin-top: 20px;
+}
+
+.choiceButton {
+    display: block;
+    margin: 10px auto; /* Відцентровуємо кнопки */
+    background-color: #B692C2; /* Вибір темно-рожевого кольору */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.choiceButton:hover {
+    background-color: #694F8E;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 #confetti {
     display: none;
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 9999;
-    background-image: url('confetti.gif');
-    background-size: cover;
-    background-position: center;
 }
 
-footer {
-    background-color: #ff6f61;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
+.close-button {
     position: absolute;
-    width: 100%;
-    bottom: 0;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #694F8E; /* Темно-фіолетовий колір для кнопки закриття */
 }
+
+.close-button:hover {
+    color: #ff5555; /* Змінюємо колір при наведенні */
+}
+
