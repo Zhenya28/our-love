@@ -33,23 +33,6 @@ header {
     font-weight: bold;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-}
-
 #hero {
     background: url('hero-background.jpg') no-repeat center center/cover;
     padding: 60px 0;
@@ -57,13 +40,16 @@ nav ul li a {
     color: #694F8E; /* Темно-фіолетовий текст */
 }
 
-#hero h1 {
-    font-size: 48px;
-    margin-bottom: 10px;
-}
-
 #hero p {
     font-size: 20px;
+}
+
+.my-photo {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 main {
@@ -201,41 +187,6 @@ footer {
     color: #694F8E; /* Темно-фіолетовий колір для кнопки закриття */
 }
 
-#menuIcon {
-    display: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: #FFFFFF;
-}
-
-@media (max-width: 768px) {
-    nav ul {
-        display: none;
-        flex-direction: column;
-        background: linear-gradient(to right, #E3A5C7, #B692C2); /* Градієнт */
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 200px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    }
-
-    nav ul.show {
-        display: flex;
-    }
-
-    nav ul li {
-        display: block;
-        margin: 10px 0;
-        text-align: right;
-    }
-
-    #menuIcon {
-        display: block;
-    }
-}
-
 .close-button:hover {
     color: #ff5555; /* Змінюємо колір при наведенні */
 }
-
