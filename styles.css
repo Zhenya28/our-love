@@ -209,4 +209,12 @@ footer {
 .close-button:hover {
     color: #ff5555; /* Змінюємо колір при наведенні */
 }
+#reasonsSection {
+    margin-top: 40px;
+    background-color: #FFFFFF; /* White background for the section */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
 
