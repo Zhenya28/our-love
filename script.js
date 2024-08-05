@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
     closeButton.addEventListener("click", () => {
         quizGame.style.display = "none";
     });
-    
-    // Конфігурація для вікторини
+
+    // New quiz data
     const quizData = [
         {
             question: "Przy pierwszym spotkaniu jakie takie słowo powiedziałem, że się śmiałaś ze mnie?",
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
             correct: 1,
         },
         {
-            question: "Kiedy chcemy mieć pierwsze dziecko(twój wiek)?",
+            question: "Kiedy chcemy mieć pierwsze dziecko (twój wiek)?",
             choices: ["28", "29", "30"],
             correct: 2,
         },
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let currentQuizIndex = 0;
     let score = 0;
-    
+
     const quizContainer = document.getElementById("quizContainer");
     const quizQuestion = document.getElementById("quizQuestion");
     const quizChoices = document.getElementById("quizChoices");
@@ -114,26 +114,45 @@ document.addEventListener("DOMContentLoaded", () => {
             loadQuiz();
             nextQuizButton.style.display = "none";
         } else {
-            finishQuiz();
+            showResults();
         }
     });
 
-    finishQuizButton.addEventListener("click", finishQuiz);
-
-    function finishQuiz() {
+    finishQuizButton.addEventListener("click", () => {
         quizGame.style.display = "none";
-        const resultMessage = `Twój wynik: ${score} z ${quizData.length}`;
-        quizResultMessage.innerText = resultMessage;
+        quizContainer.style.display = "block";
+        finishQuizButton.style.display = "none";
+        quizResultMessage.style.display = "none";
+        currentQuizIndex = 0;
+        score = 0;
+    });
+
+    function showResults() {
+        quizContainer.style.display = "none";
+        finishQuizButton.style.display = "block";
+        quizResultMessage.innerText = `Nie ważne na ile prawidłowych odpowiedzi odpowiedziałaś, twój wynik i tak 10, bo ty 10/10 😏❤️`;
         quizResultMessage.style.display = "block";
-        showConfetti();
+        if (score === quizData.length) {
+            showConfetti();
+        }
     }
 
     function showConfetti() {
-        const confetti = new ConfettiGenerator({ target: 'confetti', width: window.innerWidth, height: window.innerHeight });
-        confetti.render();
-        setTimeout(() => confetti.clear(), 5000);
+        const confettiElement = document.getElementById("confetti");
+        confettiElement.style.display = "block";
+        confetti({
+            element: confettiElement,
+            spread: 70,
+            startVelocity: 30,
+            particleCount: 100,
+            decay: 0.9,
+        });
+        setTimeout(() => {
+            confettiElement.style.display = "none";
+        }, 3000);
     }
 });
+
 
 
 
