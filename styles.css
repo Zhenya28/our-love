@@ -150,6 +150,8 @@ footer {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     z-index: 10;
     text-align: center; /* Вирівнювання тексту по центру */
+    width: 90%; /* Ширше поле гри */
+    max-width: 600px; /* Максимальна ширина */
 }
 
 .quiz-container h2 {
@@ -165,7 +167,6 @@ footer {
 
 .quiz-container button {
     margin-top: 20px;
-    padding: 10px 20px;
 }
 
 .choiceButton {
@@ -233,6 +234,11 @@ footer {
         display: block;
     }
 }
+
+.close-button:hover {
+    color: #ff5555; /* Змінюємо колір при наведенні */
+}
+
 
 
 .close-button:hover {
